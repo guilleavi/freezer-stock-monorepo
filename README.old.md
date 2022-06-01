@@ -1,2 +1,0 @@
-# freezer-stock
-React app
