@@ -1,11 +1,21 @@
+import Container from 'components/Container/Container'
+import CurrentStatus from 'components/CurrentStatus/CurrentStatus'
+import ForceDate from 'components/ForceDate/ForceDate'
+import FormContainer from 'components/FormContainer/FormContainer'
+import InputControllers from 'components/InputControllers/InputControllers'
+import Typeahead from 'components/Typeahead/Typeahead'
 import React from 'react'
-import './App.scss'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <div>Nothing to see here</div>
-    </div>
+    <Container>
+      <FormContainer>
+        <Typeahead />
+        <CurrentStatus />
+        <ForceDate />
+        <InputControllers />
+      </FormContainer>
+    </Container>
   )
 }
 
