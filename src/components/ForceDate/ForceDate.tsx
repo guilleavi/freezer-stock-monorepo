@@ -1,5 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const ForceDate = () => <div className="force-date">Force Date Section</div>
+const ForceDate = () => {
+  const today = new Date().toISOString().slice(0, 10)
+
+  const [forceDate, setForceDate] = useState(false)
+  const [, setSelectedDate] = useState(today)
+
+  useEffect(() => {
+    if (!forceDate) {
+      setSelectedDate(today)
+    }
+  }, [forceDate, today])
+
+  const handleCheckboxOnClick = () => {
+    setForceDate(!forceDate)
+  }
+
+  const handleDateOnChange = (
+    event: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement },
+  ) => {
+    setSelectedDate(event.target.value)
+  }
+
+  return (
+    <div className="force-date">
+      <span>Force date:</span>
+      <input
+        type="checkbox"
+        checked={forceDate}
+        onChange={handleCheckboxOnClick}
+      />
+      {forceDate ? (
+        <input
+          type="date"
+          disabled={!forceDate}
+          defaultValue={today}
+          onChange={handleDateOnChange}
+        />
+      ) : (
+        <span>{today}</span>
+      )}
+    </div>
+  )
+}
 
 export default ForceDate

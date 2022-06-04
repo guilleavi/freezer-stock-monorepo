@@ -27,7 +27,7 @@ const FormContainer = () => {
 
     return () => {
       // TODO: when I switch to a real fetch I have to implement
-      // a cleanup process to abort the previos fetch
+      // a cleanup process to abort the previous fetch
       isSubscribed = false
     }
   }, [fetchProduct])
