@@ -1,6 +1,6 @@
 import { Product } from 'types/product'
 
-export const productsMock: Array<Product> = [
+const productsMock: Array<Product> = [
   {
     name: 'Brocoli',
     howLongToFreeze: 3,
@@ -20,3 +20,5 @@ export const productsMock: Array<Product> = [
     nextToExpireUnits: 3,
   },
 ]
+
+export { productsMock }

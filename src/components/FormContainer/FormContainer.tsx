@@ -1,23 +1,27 @@
+import { ProductContext } from 'components/Context/ProductProvider'
 import CurrentStatus from 'components/CurrentStatus/CurrentStatus'
-import ForceDate from 'components/ForceDate/ForceDate'
-import InputControllers from 'components/InputControllers/InputControllers'
-import Typeahead from 'components/Typeahead/Typeahead'
-import React, { useCallback, useEffect, useState } from 'react'
+import ProductTypeahead from 'components/ProductTypeahead/ProductTypeahead'
+import React, { useCallback, useContext, useEffect } from 'react'
 import { getProduct } from 'services/products'
-import { Product } from 'types/product'
+import { ProductActions } from 'types/state'
 
 const FormContainer = () => {
-  const [typedValue, setTypedValue] = useState<string>('')
-  const [product, setProduct] = useState<Product>()
+  const {
+    state: { typedProductName: selectedProductName },
+    dispatch,
+  } = useContext(ProductContext)
 
   const fetchProduct = useCallback(
     async (isSubscribed: boolean) => {
-      const fetchedProduct = await getProduct(typedValue)
+      const fetchedProduct = await getProduct(selectedProductName)
       if (isSubscribed) {
-        setProduct(fetchedProduct)
+        dispatch({
+          type: ProductActions.GET_PRODUCT,
+          payload: fetchedProduct,
+        })
       }
     },
-    [typedValue],
+    [dispatch, selectedProductName],
   )
 
   useEffect(() => {
@@ -30,15 +34,15 @@ const FormContainer = () => {
       // a cleanup process to abort the previous fetch
       isSubscribed = false
     }
-  }, [fetchProduct])
+  }, [fetchProduct, selectedProductName])
 
   return (
     <div className="form-container" style={{ maxWidth: '200px' }}>
-      <Typeahead setTypedValue={setTypedValue} />
-      {product && <CurrentStatus product={product} />}
-      <ForceDate />
-      <InputControllers />
-      <div className="submit-button"></div>
+      <ProductTypeahead />
+      <CurrentStatus />
+      {/* <ForceDate /> */}
+      {/* <InputControllers /> */}
+      {/* <div className="submit-button"></div> */}
     </div>
   )
 }

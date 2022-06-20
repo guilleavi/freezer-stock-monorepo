@@ -6,7 +6,7 @@ import '../types.d.ts'
  * @param valueB string
  * @returns boolean
  */
-export const compare = (valueA: string, valueB: string): boolean =>
+const compare = (valueA: string, valueB: string): boolean =>
   valueA.standarize() === valueB.standarize()
 
 /**
@@ -16,5 +16,7 @@ export const compare = (valueA: string, valueB: string): boolean =>
  * @param units number
  * @returns string
  */
-export const pluralize = (singularTerm: string, units: number): string =>
+const pluralize = (singularTerm: string, units: number): string =>
   `${singularTerm}${units > 1 ? 's' : ''}`
+
+export { compare, pluralize }
