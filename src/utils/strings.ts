@@ -1,4 +1,4 @@
-import '../types.d.ts'
+import "../types.d.ts"
 
 /**
  * Trims the values and compare them in a case insensitive way
@@ -17,6 +17,6 @@ const compare = (valueA: string, valueB: string): boolean =>
  * @returns string
  */
 const pluralize = (singularTerm: string, units: number): string =>
-  `${singularTerm}${units > 1 ? 's' : ''}`
+  `${singularTerm}${units > 1 ? "s" : ""}`
 
 export { compare, pluralize }

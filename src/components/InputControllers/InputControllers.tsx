@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 const InputControllers = () => (
   <div className="input-conrtollers">Input Controllers</div>

@@ -1,9 +1,9 @@
-import React, { PropsWithChildren, createContext, useReducer } from 'react'
-import { Product } from 'types/product'
-import { ProductAction, ProductActions, ProductState } from 'types/state'
+import React, { PropsWithChildren, createContext, useReducer } from "react"
+import { Product } from "types/product"
+import { ProductAction, ProductActions, ProductState } from "types/state"
 
 const initialState: ProductState = {
-  typedProductName: '',
+  typedProductName: "",
   product: {} as Product,
 }
 
@@ -25,7 +25,7 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
         typedProductName: action.payload,
       }
     default:
-      console.error('Action not implemented')
+      console.error("Action not implemented")
       throw Error
   }
 }

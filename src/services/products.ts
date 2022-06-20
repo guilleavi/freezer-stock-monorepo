@@ -1,6 +1,6 @@
-import { NewProduct, Product } from 'types/product'
-import { compare } from 'utils/strings'
-import { productsMock } from './db.mock'
+import { NewProduct, Product } from "types/product"
+import { compare } from "utils/strings"
+import { productsMock } from "./db.mock"
 
 const getProduct = (name: string): Promise<Product> => {
   return new Promise((resolve) => {

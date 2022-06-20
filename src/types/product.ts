@@ -6,7 +6,7 @@ type Product = {
 }
 
 class NewProduct implements Product {
-  name = ''
+  name = ""
   howLongToFreeze = 0
   nextToExpireDate = new Date()
   nextToExpireUnits = 0

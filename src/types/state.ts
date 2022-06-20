@@ -1,8 +1,8 @@
-import { Product } from './product'
+import { Product } from "./product"
 
 enum ProductActions {
-  GET_PRODUCT = 'GET_PRODUCT',
-  TYPE_PRODUCT = 'TYPE_PRODUCT',
+  GET_PRODUCT = "GET_PRODUCT",
+  TYPE_PRODUCT = "TYPE_PRODUCT",
 }
 
 type ProductState = {

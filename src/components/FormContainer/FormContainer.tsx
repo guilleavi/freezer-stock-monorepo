@@ -1,9 +1,9 @@
-import { ProductContext } from 'components/Context/ProductProvider'
-import CurrentStatus from 'components/CurrentStatus/CurrentStatus'
-import ProductTypeahead from 'components/ProductTypeahead/ProductTypeahead'
-import React, { useCallback, useContext, useEffect } from 'react'
-import { getProduct } from 'services/products'
-import { ProductActions } from 'types/state'
+import { ProductContext } from "components/Context/ProductProvider"
+import CurrentStatus from "components/CurrentStatus/CurrentStatus"
+import ProductTypeahead from "components/ProductTypeahead/ProductTypeahead"
+import React, { useCallback, useContext, useEffect } from "react"
+import { getProduct } from "services/products"
+import { ProductActions } from "types/state"
 
 const FormContainer = () => {
   const {
@@ -37,7 +37,7 @@ const FormContainer = () => {
   }, [fetchProduct, selectedProductName])
 
   return (
-    <div className="form-container" style={{ maxWidth: '200px' }}>
+    <div className="form-container" style={{ maxWidth: "200px" }}>
       <ProductTypeahead />
       <CurrentStatus />
       {/* <ForceDate /> */}
