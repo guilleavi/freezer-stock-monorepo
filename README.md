@@ -19,5 +19,7 @@ To build the application:
 Some additional available scripts:
 
 ### `npm run test`
+
 ### `npm run lint`
+
 ### `npm run lint:fix`

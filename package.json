@@ -36,7 +36,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "npm run lint -- --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prettier": "npx prettier --write ."
   },
   "eslintConfig": {
     "extends": [
