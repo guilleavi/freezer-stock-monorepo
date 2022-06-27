@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es2022": true,
@@ -42,7 +43,6 @@
     "camelcase": "error",
     "class-methods-use-this": "error",
     "complexity": "error",
-    "constructor-super": "error",
     "consistent-return": "error",
     "consistent-this": "error",
     "curly": "error",
@@ -56,12 +56,10 @@
         "null": "ignore"
       }
     ],
-    "for-direction": "error",
     "func-style": [
       "error",
       "expression"
     ],
-    "getter-return": "error",
     "grouped-accessor-pairs": [
       "error",
       "getBeforeSet"
@@ -73,57 +71,29 @@
       "starred-block"
     ],
     "new-cap": "error",
-    "no-async-promise-executor": "error",
     "no-await-in-loop": "error",
     "no-bitwise": "error",
-    "no-case-declarations": "error",
-    "no-class-assign": "error",
-    "no-compare-neg-zero": "error",
-    "no-cond-assign": "error",
-    "no-const-assign": "error",
     "no-constant-binary-expression": "error",
-    "no-constant-condition": "error",
     "no-constructor-return": "error",
     "no-continue": "error",
-    "no-control-regex": "error",
-    "no-debugger": "error",
-    "no-delete-var": "error",
     "no-div-regex": "error",
-    "no-dupe-args": "error",
-    "no-dupe-class-members": "error",
-    "no-dupe-else-if": "error",
-    "no-dupe-keys": "error",
-    "no-duplicate-case": "error",
     "no-duplicate-imports": "error",
     "no-else-return": "error",
-    "no-empty": "error",
-    "no-empty-character-class": "error",
     "no-empty-function": "error",
-    "no-empty-pattern": "error",
     "no-eval": "error",
-    "no-ex-assign": "error",
     "no-extra-bind": "error",
-    "no-extra-boolean-cast": "error",
     "no-extra-label": "error",
-    "no-extra-semi": "error",
-    "no-fallthrough": "error",
     "no-floating-decimal": "error",
-    "no-func-assign": "error",
-    "no-global-assign": "error",
     "no-implicit-coercion": "error",
     "no-implicit-globals": "error",
     "no-implied-eval": "error",
-    "no-import-assign": "error",
-    "no-invalid-regexp": "error",
     "no-invalid-this": "error",
-    "no-irregular-whitespace": "error",
     "no-iterator": "error",
     "no-label-var": "error",
     "no-labels": "error",
     "no-lone-blocks": "error",
     "no-lonely-if": "error",
     "no-loop-func": "error",
-    "no-loss-of-precision": "error",
     "no-magic-numbers": [
       "error",
       {
@@ -135,7 +105,6 @@
         "ignoreDefaultValues": true
       }
     ],
-    "no-misleading-character-class": "error",
     "no-mixed-operators": "error",
     "no-multi-assign": "error",
     "no-multi-str": "error",
@@ -145,8 +114,6 @@
     "no-new-func": "error",
     "no-new-object": "error",
     "no-new-wrappers": "error",
-    "no-nonoctal-decimal-escape": "error",
-    "no-octal": "error",
     "no-octal-escape": "error",
     "no-param-reassign": "error",
     "no-plusplus": [
@@ -156,56 +123,27 @@
       }
     ],
     "no-proto": "error",
-    "no-new-symbol": "error",
-    "no-obj-calls": "error",
     "no-promise-executor-return": "error",
-    "no-prototype-builtins": "error",
-    "no-redeclare": "error",
-    "no-regex-spaces": "error",
     "no-return-assign": "error",
     "no-script-url": "error",
-    "no-self-assign": [
-      "error",
-      {
-        "props": true
-      }
-    ],
     "no-self-compare": "error",
     "no-sequences": "error",
-    "no-setter-return": "error",
-    "no-sparse-arrays": "error",
     "no-template-curly-in-string": "error",
-    "no-this-before-super": "error",
-    "no-undef": "error",
     "no-undef-init": "error",
     "no-undefined": "error",
-    "no-unexpected-multiline": "error",
     "no-unmodified-loop-condition": "error",
     "no-unneeded-ternary": "error",
-    "no-unreachable": "error",
     "no-unreachable-loop": "error",
-    "no-unsafe-finally": "error",
-    "no-unsafe-negation": "error",
-    "no-unsafe-optional-chaining": [
-      "error",
-      {
-        "disallowArithmeticOperators": true
-      }
-    ],
     "no-unused-expressions": "error",
-    "no-unused-labels": "error",
     "no-unused-private-class-members": "error",
     "no-use-before-define": "error",
-    "no-useless-backreference": "error",
     "no-useless-call": "error",
     "no-useless-computed-key": "error",
     "no-useless-concat": "error",
     "no-useless-constructor": "error",
-    "no-useless-escape": "error",
     "no-useless-rename": "error",
     "no-var": "error",
     "no-void": "error",
-    "no-with": "error",
     "object-shorthand": "error",
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
@@ -219,7 +157,6 @@
     "require-atomic-updates": "error",
     "spaced-comment": "error",
     "strict": "error",
-    "use-isnan": "error",
     "valid-typeof": [
       "error",
       {
