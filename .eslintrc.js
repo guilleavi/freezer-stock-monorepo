@@ -1,75 +1,66 @@
-{
-  "root": true,
-  "env": {
-    "browser": true,
-    "es2022": true,
-    "node": true
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    es2022: true,
+    node: true,
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "prettier",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier",
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+  // globals: {
+  //   __dirname: true,
+  // },
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    "ecmaVersion": 2022,
-    "sourceType": "module"
+    ecmaVersion: 2022,
+    project: ["./tsconfig.json"],
+    sourceType: "module",
+    tsconfigRootDir: __dirname,
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
-  "reportUnusedDisableDirectives": true,
-  "rules": {
+  plugins: ["react", "@typescript-eslint"],
+  reportUnusedDisableDirectives: true,
+  rules: {
     "@typescript-eslint/no-shadow": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "accessor-pairs": "error",
     "array-callback-return": [
       "error",
       {
-        "checkForEach": true
-      }
+        checkForEach: true,
+      },
     ],
-    "arrow-body-style": [
-      "error",
-      "as-needed"
-    ],
+    "arrow-body-style": ["error", "as-needed"],
     "block-scoped-var": "error",
-    "camelcase": "error",
+    camelcase: "error",
     "class-methods-use-this": "error",
-    "complexity": "error",
+    complexity: "error",
     "consistent-return": "error",
     "consistent-this": "error",
-    "curly": "error",
+    curly: "error",
     "default-case": "error",
     "default-case-last": "error",
     "dot-notation": "error",
-    "eqeqeq": [
+    eqeqeq: [
       "error",
       "always",
       {
-        "null": "ignore"
-      }
+        null: "ignore",
+      },
     ],
-    "func-style": [
-      "error",
-      "expression"
-    ],
-    "grouped-accessor-pairs": [
-      "error",
-      "getBeforeSet"
-    ],
+    "func-style": ["error", "expression"],
+    "grouped-accessor-pairs": ["error", "getBeforeSet"],
     "guard-for-in": "error",
     "max-params": "error",
-    "multiline-comment-style": [
-      "error",
-      "starred-block"
-    ],
+    "multiline-comment-style": ["error", "starred-block"],
     "new-cap": "error",
     "no-await-in-loop": "error",
     "no-bitwise": "error",
@@ -97,13 +88,10 @@
     "no-magic-numbers": [
       "error",
       {
-        "ignore": [
-          0,
-          1
-        ],
-        "ignoreArrayIndexes": true,
-        "ignoreDefaultValues": true
-      }
+        ignore: [0, 1],
+        ignoreArrayIndexes: true,
+        ignoreDefaultValues: true,
+      },
     ],
     "no-mixed-operators": "error",
     "no-multi-assign": "error",
@@ -119,8 +107,8 @@
     "no-plusplus": [
       "error",
       {
-        "allowForLoopAfterthoughts": true
-      }
+        allowForLoopAfterthoughts: true,
+      },
     ],
     "no-proto": "error",
     "no-promise-executor-return": "error",
@@ -156,18 +144,18 @@
     "prefer-template": "error",
     "require-atomic-updates": "error",
     "spaced-comment": "error",
-    "strict": "error",
+    strict: "error",
     "valid-typeof": [
       "error",
       {
-        "requireStringLiterals": true
-      }
-    ]
+        requireStringLiterals: true,
+      },
+    ],
   },
-  "settings": {
-    "react": {
+  settings: {
+    react: {
       // Tells `eslint-plugin-react` to detect the version of React to use.
-      "version": "detect"
-    }
-  }
+      version: "detect",
+    },
+  },
 }
