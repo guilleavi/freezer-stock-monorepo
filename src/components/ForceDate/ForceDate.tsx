@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 
 const ForceDate = () => {
-  const today = new Date().toISOString().slice(0, 10)
+  const DATE_LENGTH = 10
+  const today = new Date().toISOString().slice(0, DATE_LENGTH)
 
   const [forceDate, setForceDate] = useState(false)
   const [, setSelectedDate] = useState(today)

@@ -30,8 +30,10 @@ const FormContainer = () => {
     fetchProduct(isSubscribed).catch((err) => console.error(err))
 
     return () => {
-      // TODO: when I switch to a real fetch I have to implement
-      // a cleanup process to abort the previous fetch
+      /*
+       * TODO: when I switch to a real fetch I have to implement
+       * a cleanup process to abort the previous fetch
+       */
       isSubscribed = false
     }
   }, [fetchProduct, selectedProductName])
