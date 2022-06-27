@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from "react"
+import { PropsWithChildren } from "react"
 import { ProductProvider } from "components/Context/ProductProvider"
 
-const Container = ({ children }: PropsWithChildren<unknown>) => (
+const Container = ({ children }: PropsWithChildren) => (
   <div className="container">
     <ProductProvider>{children}</ProductProvider>
   </div>

@@ -7,15 +7,18 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:prettier/recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended", // https://www.npmjs.com/package/eslint-plugin-react
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended", // https://typescript-eslint.io/rules/
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
+    "plugin:eslint-comments/recommended",
+    "plugin:prettier/recommended",
     "prettier",
   ],
-  // globals: {
-  //   __dirname: true,
-  // },
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -26,11 +29,21 @@ module.exports = {
     sourceType: "module",
     tsconfigRootDir: __dirname,
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: [
+    "@typescript-eslint",
+    "eslint-comments",
+    "import",
+    "react",
+    "react-hooks",
+  ],
   reportUnusedDisableDirectives: true,
   rules: {
+    "@typescript-eslint/array-type": ["error", { default: "generic" }],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/no-shadow": "error",
     "@typescript-eslint/no-unused-vars": "error",
+    "eslint-comments/no-unused-disable": "error",
+    "import/no-unresolved": "error",
     "accessor-pairs": "error",
     "array-callback-return": [
       "error",
@@ -48,7 +61,6 @@ module.exports = {
     curly: "error",
     "default-case": "error",
     "default-case-last": "error",
-    "dot-notation": "error",
     eqeqeq: [
       "error",
       "always",
@@ -77,7 +89,6 @@ module.exports = {
     "no-floating-decimal": "error",
     "no-implicit-coercion": "error",
     "no-implicit-globals": "error",
-    "no-implied-eval": "error",
     "no-invalid-this": "error",
     "no-iterator": "error",
     "no-label-var": "error",
@@ -128,34 +139,36 @@ module.exports = {
     "no-useless-call": "error",
     "no-useless-computed-key": "error",
     "no-useless-concat": "error",
-    "no-useless-constructor": "error",
     "no-useless-rename": "error",
-    "no-var": "error",
     "no-void": "error",
     "object-shorthand": "error",
     "prefer-arrow-callback": "error",
-    "prefer-const": "error",
     "prefer-destructuring": "error",
     "prefer-exponentiation-operator": "error",
     "prefer-object-has-own": "error",
     "prefer-object-spread": "error",
-    "prefer-rest-params": "error",
-    "prefer-spread": "error",
     "prefer-template": "error",
     "require-atomic-updates": "error",
     "spaced-comment": "error",
     strict: "error",
-    "valid-typeof": [
-      "error",
-      {
-        requireStringLiterals: true,
-      },
-    ],
   },
   settings: {
     react: {
-      // Tells `eslint-plugin-react` to detect the version of React to use.
+      createClass: "createReactClass",
+      pragma: "React",
+      fragment: "Fragment",
       version: "detect",
+      flowVersion: "0.53",
+    },
+    "import/extensions": [".ts", ".tsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+        project: "./tsconfig.json",
+      },
     },
   },
 }

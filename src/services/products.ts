@@ -5,7 +5,7 @@ import { productsMock } from "./db.mock"
 const getProduct = (name: string): Promise<Product> =>
   new Promise((resolve) => {
     resolve(
-      productsMock.find((product) => compare(product.name, name)) ||
+      productsMock.find((product) => compare(product.name, name)) ??
         new NewProduct(name),
     )
   })

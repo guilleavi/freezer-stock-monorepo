@@ -26,11 +26,12 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
       }
     default:
       console.error("Action not implemented")
+      // eslint-disable-next-line @typescript-eslint/no-throw-literal
       throw Error
   }
 }
 
-const ProductProvider = ({ children }: PropsWithChildren<unknown>) => {
+const ProductProvider = ({ children }: PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <ProductContext.Provider value={{ state, dispatch }}>
