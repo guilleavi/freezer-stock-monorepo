@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 
 const ForceDate = () => {
   const DATE_LENGTH = 10
@@ -13,15 +13,18 @@ const ForceDate = () => {
     }
   }, [forceDate, today])
 
-  const handleCheckboxOnClick = () => {
+  const handleCheckboxOnClick = useCallback(() => {
     setForceDate(!forceDate)
-  }
+  }, [forceDate])
 
-  const handleDateOnChange = (
-    event: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement },
-  ) => {
-    setSelectedDate(event.target.value)
-  }
+  const handleDateOnChange = useCallback(
+    (
+      event: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement },
+    ) => {
+      setSelectedDate(event.target.value)
+    },
+    [],
+  )
 
   return (
     <div className="force-date">

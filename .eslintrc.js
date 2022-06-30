@@ -9,7 +9,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:react/recommended", // https://www.npmjs.com/package/eslint-plugin-react
+    "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended", // https://typescript-eslint.io/rules/
@@ -18,6 +18,7 @@ module.exports = {
     "plugin:eslint-comments/recommended",
     "plugin:prettier/recommended",
     "prettier",
+    //eslint-plugin-jsx-a11y
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -44,6 +45,27 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "error",
     "eslint-comments/no-unused-disable": "error",
     "import/no-unresolved": "error",
+    "react/boolean-prop-naming": ["error", { validateNested: true }],
+    "react/button-has-type": "error",
+    "react/destructuring-assignment": [
+      "error",
+      "always",
+      { destructureInSignature: "always" },
+    ],
+    "react/function-component-definition": [
+      "error",
+      {
+        namedComponents: "arrow-function",
+      },
+    ],
+    "react/no-unstable-nested-components": "warn",
+    "react/jsx-child-element-spacing": "error",
+    "react/jsx-handler-names": "error",
+    "react/jsx-no-bind": "error",
+    "react/jsx-no-constructed-context-values": "error",
+    "react/jsx-no-leaked-render": ["error", { validStrategies: ["ternary"] }],
+    "react/jsx-no-useless-fragment": "error",
+    // eslint
     "accessor-pairs": "error",
     "array-callback-return": [
       "error",

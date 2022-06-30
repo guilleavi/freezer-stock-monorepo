@@ -1,4 +1,9 @@
-import React, { PropsWithChildren, createContext, useReducer } from "react"
+import React, {
+  PropsWithChildren,
+  createContext,
+  useReducer,
+  useMemo,
+} from "react"
 import { Product } from "types/product"
 import { ProductAction, ProductActions, ProductState } from "types/state"
 
@@ -33,8 +38,9 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
 
 const ProductProvider = ({ children }: PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const contextValue = useMemo(() => ({ state, dispatch }), [state])
   return (
-    <ProductContext.Provider value={{ state, dispatch }}>
+    <ProductContext.Provider value={contextValue}>
       {children}
     </ProductContext.Provider>
   )
