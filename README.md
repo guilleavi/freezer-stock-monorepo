@@ -1,6 +1,6 @@
 # Getting Started with Freezer Stock
 
-Freezer Stock is a little tool that notifice you when a product in your freezer is closed to expire.
+Freezer Stock is a small tool that notifies you when a product in your freezer is about to expire.
 
 ## Available Scripts
 
