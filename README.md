@@ -6,20 +6,20 @@ Freezer Stock is a small tool that notifies you when a product in your freezer i
 
 To install this aplication just run:
 
-### `npm install`
+### `yarn`
 
 To run it locally:
 
-### `npm run start`
+### `yarn start`
 
 To build the application:
 
-### `npm run build`
+### `yarn build`
 
 Some additional available scripts:
 
-### `npm run test`
+### `yarn test`
 
-### `npm run lint`
+### `yarn lint`
 
-### `npm run lint:fix`
+### `yarn lint:fix`

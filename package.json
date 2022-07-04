@@ -8,12 +8,12 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run prettier && npm run lint:fix && react-scripts build",
+    "build": "yarn prettier && yarn lint:fix && react-scripts build",
     "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "yarn lint --fix",
     "prepare": "husky install",
     "prettier": "npx prettier --write ."
   },
@@ -45,11 +45,12 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "npm run lint -- --fix",
+      "yarn lint --fix",
       "prettier --write --ignore-unknown"
     ]
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "packageManager": "yarn@3.2.1"
 }
