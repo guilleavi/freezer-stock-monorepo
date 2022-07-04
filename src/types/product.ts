@@ -1,9 +1,4 @@
-type Product = {
-  name: string
-  howLongToFreeze: number
-  nextToExpireDate: Date
-  nextToExpireUnits: number
-}
+import { z } from "zod"
 
 class NewProduct implements Product {
   name = ""
@@ -16,5 +11,12 @@ class NewProduct implements Product {
   }
 }
 
-export { NewProduct }
-export type { Product }
+const Product = z.object({
+  name: z.string(),
+  howLongToFreeze: z.number(),
+  nextToExpireDate: z.date(),
+  nextToExpireUnits: z.number(),
+})
+type Product = z.infer<typeof Product>
+
+export { NewProduct, Product }
