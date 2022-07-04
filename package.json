@@ -20,6 +20,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-query": "^3.39.1",
     "react-scripts": "^5.0.1",
     "sass": "^1.53.0",
     "typescript": "^4.7.4"
@@ -41,7 +42,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "msw": "^0.43.0",
+    "prettier": "^2.7.1",
+    "zod": "^3.17.3"
   },
   "lint-staged": {
     "src/**/*": [
@@ -52,5 +55,8 @@
   "browserslist": [
     "defaults"
   ],
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.1",
+  "msw": {
+    "workerDirectory": "public"
+  }
 }

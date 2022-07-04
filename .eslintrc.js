@@ -64,7 +64,7 @@ module.exports = {
     "func-style": ["error", "expression"],
     "guard-for-in": "error",
     "max-params": "error",
-    "multiline-comment-style": ["error", "starred-block"],
+    "multiline-comment-style": ["warn", "starred-block"],
     "no-await-in-loop": "error",
     "no-constant-binary-expression": "error",
     "no-constructor-return": "error",
@@ -107,7 +107,7 @@ module.exports = {
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "no-unused-expressions": "off",
-    "@typescript-eslint/no-unused-expressions": ["error"],
+    "@typescript-eslint/no-unused-expressions": ["warn"],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     // Imports
