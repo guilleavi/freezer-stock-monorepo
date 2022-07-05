@@ -11,14 +11,14 @@ const invalidResponseWarn = ({
   invalidResponse,
   error,
 }: invalidResponseWarnParams) => {
-  console.log(
+  console.warn(
     "\x1b[31m%s\x1b[0m",
     `${
       entity.charAt(0).toUpperCase() + entity.slice(1)
     } response data doesn't match with the expected type:`,
   )
-  console.log(invalidResponse)
-  console.log(error)
+  console.warn(invalidResponse)
+  console.warn(error)
 }
 
 export const safeFetch = async <T extends ZodType<unknown, any, unknown>, U>({
@@ -33,7 +33,9 @@ export const safeFetch = async <T extends ZodType<unknown, any, unknown>, U>({
   defaultValue: U
 }): Promise<T["_output"]> => {
   const headers = [["Content-Type", "application/json"]]
-  const rawResponse = await fetch(url, { method: "GET", headers })
+  const data = await fetch(url, { method: "GET", headers })
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const rawResponse = await data.json()
   const response = schema.safeParse(rawResponse)
 
   if (response.success) {
@@ -45,6 +47,7 @@ export const safeFetch = async <T extends ZodType<unknown, any, unknown>, U>({
     invalidResponse: rawResponse,
     error: response.error,
   })
+
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   return (rawResponse as unknown as T) ?? defaultValue
 }

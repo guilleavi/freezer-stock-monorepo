@@ -14,7 +14,11 @@ class NewProduct implements Product {
 const Product = z.object({
   name: z.string(),
   howLongToFreeze: z.number(),
-  nextToExpireDate: z.date(),
+  nextToExpireDate: z.preprocess((arg) => {
+    if (typeof arg === "string" || arg instanceof Date) {
+      return new Date(arg)
+    }
+  }, z.date()),
   nextToExpireUnits: z.number(),
 })
 type Product = z.infer<typeof Product>

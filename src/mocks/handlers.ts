@@ -1,4 +1,6 @@
 import { rest } from "msw"
+import { compare } from "utils/strings"
+import { productsMock } from "./db.mock"
 /*
  * import { productsMock } from "./db.mock"
  * import { compare } from "../utils/strings"
@@ -11,15 +13,11 @@ export const handlers = [
     const { productName } = req.params
     const test = res(
       ctx.status(HTTP_SUCCESS),
-      /*
-       * ctx.body(
-       *   JSON.stringify({
-       *     product: productsMock.find((product) =>
-       *       compare(product.name, productName as string),
-       *     ),
-       *   }),
-       * ),
-       */
+      ctx.json(
+        productsMock.find((product) =>
+          compare(product.name, productName as string),
+        ),
+      ),
     )
     return test
   }),
