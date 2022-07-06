@@ -4,12 +4,12 @@ import "./index.scss"
 import App from "./App"
 import { worker } from "./mocks/browser"
 
+// TODO: remove this after the real API is done
 if (process.env["NODE_ENV"] === "development") {
   void worker.start()
 }
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const root = createRoot(document.getElementById("root")!)
+const root = createRoot(document.getElementById("root") as Element)
 root.render(
   <React.StrictMode>
     <App />
