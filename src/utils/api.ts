@@ -21,7 +21,7 @@ const invalidResponseWarn = ({
   console.warn(error)
 }
 
-export const safeFetch = async <T extends ZodType<unknown, any, unknown>, U>({
+export const safeFetch = async <T extends ZodType<unknown>, U>({
   schema,
   entity,
   url,

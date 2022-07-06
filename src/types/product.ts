@@ -18,6 +18,7 @@ const Product = z.object({
     if (typeof arg === "string" || arg instanceof Date) {
       return new Date(arg)
     }
+    return arg
   }, z.date()),
   nextToExpireUnits: z.number(),
 })

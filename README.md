@@ -16,6 +16,10 @@ To build the application:
 
 ### `yarn build`
 
+To serve the built application:
+
+### `yarn serve`
+
 Some additional available scripts:
 
 ### `yarn test`

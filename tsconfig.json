@@ -1,16 +1,36 @@
 {
   "compilerOptions": {
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
+    // Type Checking
+    "allowUnreachableCode": false,
     "alwaysStrict": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    // Modules
     "baseUrl": "src",
-    "composite": true,
+    "module": "esnext",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    // Emit
     "declaration": true,
+    "sourceMap": true,
+    // JavaScript Support
+    "allowJs": false,
+    // Interop Constraints
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "importHelpers": false,
     "isolatedModules": true,
-    "jsx": "preserve",
+    // Language and Environment
+    "jsx": "react-jsx",
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,26 +38,21 @@
       "es6",
       "esnext"
     ],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
+    "target": "es2016",
+    // Projects
+    "composite": true,
+    // Output formatting
     "noErrorTruncation": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    // "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noPropertyAccessFromIndexSignature": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    "resolveJsonModule": true,
-    "rootDir": ".",
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "target": "es2016"
-  }
+    "preserveWatchOutput": true,
+    // Completeness
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  // https://github.com/microsoft/vscode/issues/31188
+  "exclude": [
+    "**/node_modules/*",
+    "**/build/*"
+  ]
 }

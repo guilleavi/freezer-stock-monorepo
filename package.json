@@ -7,7 +7,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "yarn prettier && yarn lint:fix && react-scripts build",
     "serve": "serve -s build",
     "test": "react-scripts test",
