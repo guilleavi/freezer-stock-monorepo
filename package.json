@@ -12,10 +12,8 @@
     "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "yarn lint --fix",
-    "lint-styles": "npx stylelint '**/*.scss'",
-    "lint-styles:fix": "npx stylelint '**/*.scss' --fix",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" && npx stylelint '**/*.scss'",
+    "lint:fix": "yarn lint --fix 6& npx stylelint '**/*.scss' --fix",
     "prepare": "husky install",
     "prettier": "npx prettier --write ."
   },
@@ -48,13 +46,13 @@
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-recommended": "^8.0.0",
     "stylelint-config-standard-scss": "^4.0.0",
     "zod": "^3.17.3"
   },
   "lint-staged": {
     "src/**/*": [
       "yarn lint:fix",
-      "yarn lint-styles:fix",
       "yarn prettier --ignore-unknown"
     ]
   },
