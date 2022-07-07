@@ -2,5 +2,12 @@
   "extends": [
     "stylelint-config-standard-scss",
     "stylelint-config-prettier-scss"
-  ]
+  ],
+  "rules": {
+    "property-no-vendor-prefix": null,
+    "color-hex-length": "long",
+    "color-named": "always-where-possible",
+    "font-weight-notation": "numeric",
+    "declaration-no-important": true
+  }
 }
