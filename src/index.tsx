@@ -4,7 +4,7 @@ import "./index.scss"
 import App from "./App"
 import { worker } from "./mocks/browser"
 
-// TODO: remove this after the real API is done
+// TODO: remove this when the real API is done
 if (process.env["NODE_ENV"] === "development") {
   void worker.start()
 }

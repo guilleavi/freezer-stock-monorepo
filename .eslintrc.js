@@ -108,8 +108,13 @@ module.exports = {
     "@typescript-eslint/no-shadow": ["error"],
     "no-unused-expressions": "off",
     "@typescript-eslint/no-unused-expressions": ["warn"],
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        selector: "typeLike",
+        format: ["PascalCase"],
+      },
+    ],
     // Imports
     "import/no-unresolved": "error",
     // React

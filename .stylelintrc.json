@@ -5,7 +5,9 @@
   ],
   "ignoreFiles": [
     "**/*.js",
-    "**/*.json"
+    "**/*.json",
+    "**/*.ts",
+    "**/*.tsx"
   ],
   "rules": {
     "property-no-vendor-prefix": null,
