@@ -15,7 +15,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\" && npx stylelint '**/*.scss'",
     "lint:fix": "yarn lint --fix 6& npx stylelint '**/*.scss' --fix",
     "prepare": "husky install",
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write ./src"
   },
   "dependencies": {
     "react": "^18.2.0",
