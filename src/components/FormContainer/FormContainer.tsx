@@ -1,6 +1,6 @@
 import { ProductContext } from "components/Context/ProductProvider"
 import CurrentStatus from "components/CurrentStatus/CurrentStatus"
-import ProductTypeahead from "components/ProductTypeahead/ProductTypeahead"
+import ProductTypeahead from "components/ProductInput/ProductInput"
 import { useCallback, useContext, useEffect } from "react"
 import { getProduct } from "services/products"
 import { ProductActions } from "types/state"
@@ -32,7 +32,7 @@ const FormContainer = () => {
     return () => {
       /*
        * TODO: when I switch to a real fetch I have to implement
-       * a cleanup process to abort the previous fetch
+       * a cleanup process to abort the previous fetch when I'm using the typeahead
        */
       isSubscribed = false
     }

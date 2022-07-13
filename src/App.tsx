@@ -1,10 +1,10 @@
-import Container from "components/Container/Container"
+import { ProductProvider } from "components/Context/ProductProvider"
 import FormContainer from "components/FormContainer/FormContainer"
 
 const App = () => (
-  <Container>
+  <ProductProvider>
     <FormContainer />
-  </Container>
+  </ProductProvider>
 )
 
 export default App

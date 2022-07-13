@@ -1,17 +1,15 @@
 import { rest } from "msw"
 import { compare } from "utils/strings"
 import { productsMock } from "./db.mock"
-/*
- * import { productsMock } from "./db.mock"
- * import { compare } from "../utils/strings"
- */
 
 const HTTP_SUCCESS = 200
+const DELAY = 10000
 
 export const handlers = [
   rest.get("/product/:productName", (req, res, ctx) => {
     const { productName } = req.params
     const test = res(
+      ctx.delay(DELAY),
       ctx.status(HTTP_SUCCESS),
       ctx.json(
         productsMock.find((product) =>

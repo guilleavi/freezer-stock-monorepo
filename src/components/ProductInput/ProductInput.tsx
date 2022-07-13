@@ -11,6 +11,7 @@ const ProductTypeahead = () => {
         target: HTMLInputElement
       },
     ) => {
+      console.log("test")
       if (event.key === "Enter") {
         dispatch({
           type: ProductActions.TYPE_PRODUCT,
@@ -21,7 +22,6 @@ const ProductTypeahead = () => {
     [dispatch],
   )
 
-  // TODO: convert in a typeahead
   return <input type="text" onKeyDown={handleKeyDown} />
 }
 
