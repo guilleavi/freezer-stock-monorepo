@@ -1,3 +1,4 @@
+import axios from "axios"
 import { ZodError, ZodType, ZodTypeDef } from "zod"
 import { toPascalCase } from "./strings"
 
@@ -50,13 +51,7 @@ const safeFetch = async <T extends ZodType<unknown, ZodTypeDef, unknown>, U>({
   url,
 }: SafeFetch<T, U>): Promise<T["_output"]> => {
   try {
-    const headers = [["Content-Type", "application/json"]]
-    /*
-     * TODO: once the real API is implemented,
-     * I need to add the logic to return the default value when the product can't be find
-     */
-    const data = await fetch(url, { method: "GET", headers })
-    const rawResponse = (await data.json()) as unknown
+    const rawResponse = (await axios.get(url)).data as T
     const response = schema.safeParse(rawResponse)
 
     if (response.success) {
@@ -69,7 +64,11 @@ const safeFetch = async <T extends ZodType<unknown, ZodTypeDef, unknown>, U>({
       invalidResponse: rawResponse,
     })
 
-    return rawResponse as T
+    if (!("name" in rawResponse)) {
+      return defaultValue
+    }
+
+    return rawResponse
   } catch (e: unknown) {
     console.log(e)
     return defaultValue
