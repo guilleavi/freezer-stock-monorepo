@@ -91,6 +91,8 @@ module.exports = {
     "@typescript-eslint/array-type": ["error", { default: "generic" }], // Array[T]
     "@typescript-eslint/consistent-type-definitions": ["error", "type"], // Always use type instead of interface
     "@typescript-eslint/consistent-type-exports": "error", // export type separate
+    "@typescript-eslint/no-unused-vars":
+      process.env.NODE_ENV === "production" ? "error" : "warn",
     "@typescript-eslint/no-redundant-type-constituents": "error",
     "@typescript-eslint/switch-exhaustiveness-check": "error",
     "no-loop-func": "off",
@@ -107,7 +109,9 @@ module.exports = {
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "no-unused-expressions": "off",
-    "@typescript-eslint/no-unused-expressions": ["warn"],
+    "@typescript-eslint/no-unused-expressions": [
+      process.env.NODE_ENV === "production" ? "error" : "warn",
+    ],
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -131,7 +135,8 @@ module.exports = {
         namedComponents: "arrow-function",
       },
     ],
-    "react/no-unstable-nested-components": "warn",
+    "react/no-unstable-nested-components":
+      process.env.NODE_ENV === "production" ? "error" : "warn",
     // React JSX
     "react/jsx-child-element-spacing": "error",
     "react/jsx-handler-names": "error",

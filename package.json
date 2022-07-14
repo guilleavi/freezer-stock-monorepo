@@ -8,12 +8,12 @@
   "private": true,
   "scripts": {
     "dev": "react-scripts start",
-    "build": "yarn lint:fix && lint-styles:fix && yarn prettier && react-scripts build",
+    "build": "yarn lint:fix && yarn prettier && react-scripts build",
     "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && npx stylelint '**/*.scss'",
-    "lint:fix": "yarn lint --fix 6& npx stylelint '**/*.scss' --fix",
+    "lint:fix": "yarn lint --fix && npx stylelint '**/*.scss' --fix",
     "prepare": "husky install",
     "prettier": "npx prettier --write ./src"
   },

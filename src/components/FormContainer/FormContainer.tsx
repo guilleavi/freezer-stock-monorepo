@@ -12,29 +12,26 @@ const FormContainer = () => {
   } = useContext(ProductContext)
 
   const fetchProduct = useCallback(
-    async (isSubscribed: boolean) => {
-      const fetchedProduct = await getProduct(selectedProductName)
-      if (isSubscribed) {
-        dispatch({
-          type: ProductActions.GET_PRODUCT,
-          payload: fetchedProduct,
-        })
-      }
+    async (signal: AbortSignal) => {
+      const fetchedProduct = await getProduct({
+        name: selectedProductName,
+        abortSignal: signal,
+      })
+      dispatch({
+        type: ProductActions.GET_PRODUCT,
+        payload: fetchedProduct,
+      })
     },
     [dispatch, selectedProductName],
   )
 
   useEffect(() => {
-    let isSubscribed = true
-
-    fetchProduct(isSubscribed).catch((err) => console.error(err))
+    const abortController = new AbortController()
+    //Save the cancel token for the current request
+    fetchProduct(abortController.signal).catch((err) => console.error(err))
 
     return () => {
-      /*
-       * TODO: when I switch to a real fetch I have to implement
-       * a cleanup process to abort the previous fetch when I'm using the typeahead
-       */
-      isSubscribed = false
+      abortController.abort()
     }
   }, [fetchProduct, selectedProductName])
 

@@ -9,6 +9,7 @@ type InvalidResponse = {
 }
 
 type SafeFetch<T, U> = {
+  abortSignal: AbortSignal
   defaultValue: U
   entityName: string
   schema: T
@@ -45,13 +46,15 @@ const invalidResponseWarn = ({
  * @returns {T} Data returned by the API, it doesn't matter if it passed or not the schema validation
  */
 const safeFetch = async <T extends ZodType<unknown, ZodTypeDef, unknown>, U>({
+  abortSignal,
   defaultValue,
   entityName,
   schema,
   url,
 }: SafeFetch<T, U>): Promise<T["_output"]> => {
   try {
-    const rawResponse = (await axios.get(url)).data as T
+    const rawResponse = (await axios.get(url, { signal: abortSignal }))
+      .data as T
     const response = schema.safeParse(rawResponse)
 
     if (response.success) {

@@ -1,13 +1,22 @@
 import { NewProduct, Product } from "types/product"
 import { safeFetch } from "utils/fetch"
 
-const getProduct = async (name: string): Promise<Product> =>
+type GetProduct = {
+  abortSignal: AbortSignal
+  name: string
+}
+
+const getProduct = async ({
+  abortSignal,
+  name,
+}: GetProduct): Promise<Product> =>
   name
     ? await safeFetch({
-        schema: Product,
-        entityName: "Product",
-        url: `/product/${name}`,
+        abortSignal,
         defaultValue: new NewProduct(name),
+        entityName: "Product",
+        schema: Product,
+        url: `/product/${name}`,
       })
     : new NewProduct("")
 

@@ -11,7 +11,6 @@ const ProductTypeahead = () => {
         target: HTMLInputElement
       },
     ) => {
-      console.log("test")
       if (event.key === "Enter") {
         dispatch({
           type: ProductActions.TYPE_PRODUCT,
