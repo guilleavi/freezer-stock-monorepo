@@ -3,11 +3,13 @@ import { Product } from "./product"
 enum ProductActions {
   GET_PRODUCT = "GET_PRODUCT",
   TYPE_PRODUCT = "TYPE_PRODUCT",
+  UPDATE_STORAGE_DATE = "UPDATE_STORAGE_DATE",
 }
 
 type ProductState = {
-  typedProductName: string
   product: Product
+  storageDate: string
+  typedProductName: string
 }
 
 type GetProductAction = {
@@ -20,7 +22,15 @@ type TypeProductAction = {
   payload: string
 }
 
-type ProductAction = GetProductAction | TypeProductAction
+type UpdateStorageDateAction = {
+  type: ProductActions.UPDATE_STORAGE_DATE
+  payload: string
+}
+
+type ProductAction =
+  | GetProductAction
+  | TypeProductAction
+  | UpdateStorageDateAction
 
 export { ProductActions }
 export type { ProductState, ProductAction }

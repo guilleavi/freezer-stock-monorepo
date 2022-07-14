@@ -2,7 +2,7 @@ import { ProductContext } from "components/Context/ProductProvider"
 import React, { useCallback, useContext } from "react"
 import { ProductActions } from "types/state"
 
-const ProductTypeahead = () => {
+const ProductInput = () => {
   const { dispatch } = useContext(ProductContext)
 
   const handleKeyDown = useCallback(
@@ -30,4 +30,4 @@ const ProductTypeahead = () => {
   )
 }
 
-export default ProductTypeahead
+export default ProductInput

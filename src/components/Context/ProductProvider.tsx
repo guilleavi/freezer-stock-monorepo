@@ -14,6 +14,11 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
         ...state,
         typedProductName: action.payload,
       }
+    case ProductActions.UPDATE_STORAGE_DATE:
+      return {
+        ...state,
+        storageDate: action.payload,
+      }
     default:
       console.error("Action not implemented")
       throw new Error()
@@ -21,8 +26,9 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
 }
 
 const initialState: ProductState = {
-  typedProductName: "",
   product: {} as Product,
+  typedProductName: "",
+  storageDate: "",
 }
 
 const ProductContext = createContext<{

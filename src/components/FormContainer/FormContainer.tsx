@@ -1,14 +1,18 @@
 import { ProductContext } from "components/Context/ProductProvider"
 import CurrentStatus from "components/CurrentStatus/CurrentStatus"
-import ForceDate from "components/ForceDate/ForceDate"
-import ProductTypeahead from "components/ProductInput/ProductInput"
+import StorageDate from "components/StorageDate/StorageDate"
+import UnitsController from "components/UnitsController/UnitsController"
+import ProductInput from "components/ProductInput/ProductInput"
 import { useCallback, useContext, useEffect } from "react"
 import { getProduct } from "services/products"
 import { ProductActions } from "types/state"
 
 const FormContainer = () => {
   const {
-    state: { typedProductName: selectedProductName },
+    state: {
+      typedProductName: selectedProductName,
+      product: { name, howLongToFreeze },
+    },
     dispatch,
   } = useContext(ProductContext)
 
@@ -35,12 +39,28 @@ const FormContainer = () => {
     }
   }, [fetchProduct, selectedProductName])
 
+  const ProductContent = useCallback(() => {
+    if (!name) {
+      return null
+    }
+
+    if (!howLongToFreeze) {
+      return <div>No data</div>
+    }
+
+    return (
+      <>
+        <CurrentStatus />
+        <StorageDate />
+        <UnitsController />
+      </>
+    )
+  }, [name, howLongToFreeze])
+
   return (
     <div className="form-container" style={{ maxWidth: "200px" }}>
-      <ProductTypeahead />
-      <CurrentStatus />
-      <ForceDate />
-      {/* <InputControllers /> */}
+      <ProductInput />
+      <ProductContent />
       {/* <div className="submit-button"></div> */}
     </div>
   )
