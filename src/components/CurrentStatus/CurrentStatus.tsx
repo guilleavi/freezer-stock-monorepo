@@ -20,10 +20,8 @@ const CurrentStatus = () => {
 
     return (
       <>
-        <div>
-          <div>How long can you freeze it?</div>
-          <div>{howLongToFreeze} months</div>
-        </div>
+        <div>How long can you freeze it?</div>
+        <div>{howLongToFreeze} months</div>
         <div>
           {nextToExpireUnits} {pluralize("Unit", nextToExpireUnits)} of {name}{" "}
           {pluralizeToBe(nextToExpireUnits)} expiring on{" "}

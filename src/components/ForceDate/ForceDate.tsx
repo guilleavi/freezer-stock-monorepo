@@ -9,6 +9,10 @@ const ForceDate = () => {
 
   useEffect(() => {
     if (!forceDate) {
+      /*
+       * By default today's date is the storage date,
+       * but you can force a custom one in the case you forget to update the freezer stock at the moment
+       */
       setSelectedDate(today)
     }
   }, [forceDate, today])
@@ -27,24 +31,25 @@ const ForceDate = () => {
   )
 
   return (
-    <div className="force-date">
-      <span>Force date:</span>
-      <input
-        type="checkbox"
-        checked={forceDate}
-        onChange={handleCheckboxOnClick}
-      />
-      {forceDate ? (
+    <>
+      <div>{`Storage Date ${!forceDate ? today : ""}`}</div>
+      <div>
         <input
-          type="date"
-          disabled={!forceDate}
-          defaultValue={today}
-          onChange={handleDateOnChange}
+          type="checkbox"
+          checked={forceDate}
+          onChange={handleCheckboxOnClick}
         />
-      ) : (
-        <span>{today}</span>
-      )}
-    </div>
+        {`Force date`}
+        {forceDate ? (
+          <input
+            type="date"
+            disabled={!forceDate}
+            defaultValue={today}
+            onChange={handleDateOnChange}
+          />
+        ) : null}
+      </div>
+    </>
   )
 }
 

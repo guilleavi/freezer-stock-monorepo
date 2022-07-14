@@ -1,5 +1,6 @@
 import { ProductContext } from "components/Context/ProductProvider"
 import CurrentStatus from "components/CurrentStatus/CurrentStatus"
+import ForceDate from "components/ForceDate/ForceDate"
 import ProductTypeahead from "components/ProductInput/ProductInput"
 import { useCallback, useContext, useEffect } from "react"
 import { getProduct } from "services/products"
@@ -38,7 +39,7 @@ const FormContainer = () => {
     <div className="form-container" style={{ maxWidth: "200px" }}>
       <ProductTypeahead />
       <CurrentStatus />
-      {/* <ForceDate /> */}
+      <ForceDate />
       {/* <InputControllers /> */}
       {/* <div className="submit-button"></div> */}
     </div>

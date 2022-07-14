@@ -70,7 +70,6 @@ module.exports = {
     "no-constructor-return": "error",
     "no-else-return": "error",
     "no-implicit-coercion": "error",
-    "no-negated-condition": "error",
     "no-nested-ternary": "error",
     "no-param-reassign": "error",
     "no-return-assign": "error",
