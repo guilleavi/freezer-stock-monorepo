@@ -21,7 +21,13 @@ const ProductTypeahead = () => {
     [dispatch],
   )
 
-  return <input type="text" onKeyDown={handleKeyDown} />
+  return (
+    <input
+      type="text"
+      onKeyDown={handleKeyDown}
+      style={{ border: "1px solid gray", padding: "5px" }}
+    />
+  )
 }
 
 export default ProductTypeahead

@@ -27,7 +27,7 @@ const invalidResponseWarn = ({
   entityName,
   error,
   invalidResponse,
-}: InvalidResponse) => {
+}: InvalidResponse): void => {
   console.warn(
     `${toPascalCase(
       entityName,
@@ -67,7 +67,7 @@ const safeFetch = async <T extends ZodType<unknown, ZodTypeDef, unknown>, U>({
       invalidResponse: rawResponse,
     })
 
-    if (!("name" in rawResponse)) {
+    if (!(typeof rawResponse === "object") || !("name" in rawResponse)) {
       return defaultValue
     }
 

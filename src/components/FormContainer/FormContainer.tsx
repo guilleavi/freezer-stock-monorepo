@@ -27,7 +27,6 @@ const FormContainer = () => {
 
   useEffect(() => {
     const abortController = new AbortController()
-    //Save the cancel token for the current request
     fetchProduct(abortController.signal).catch((err) => console.error(err))
 
     return () => {

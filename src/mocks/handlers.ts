@@ -3,7 +3,7 @@ import { compare } from "utils/strings"
 import { productsMock } from "./db.mock"
 
 const HTTP_SUCCESS = 200
-const DELAY = 3000
+const DELAY = 1000
 
 export const handlers = [
   rest.get("/product/:productName", (req, res, ctx) => {
