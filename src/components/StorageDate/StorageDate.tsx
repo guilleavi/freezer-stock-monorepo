@@ -1,5 +1,5 @@
 import { ProductContext } from "components/Context/ProductProvider"
-import React, { useCallback, useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { ProductActions } from "types/state"
 
 const StorageDate = () => {
@@ -22,21 +22,18 @@ const StorageDate = () => {
     }
   }, [dispatch, hasCustomDate, today])
 
-  const handleCheckboxOnClick = useCallback(() => {
+  const handleCheckboxOnClick = () => {
     setHasCustomDate(!hasCustomDate)
-  }, [hasCustomDate])
+  }
 
-  const handleDateOnChange = useCallback(
-    (
-      event: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement },
-    ) => {
-      dispatch({
-        type: ProductActions.UPDATE_STORAGE_DATE,
-        payload: event.target.value,
-      })
-    },
-    [dispatch],
-  )
+  const handleDateOnChange = (
+    event: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement },
+  ) => {
+    dispatch({
+      type: ProductActions.UPDATE_STORAGE_DATE,
+      payload: event.target.value,
+    })
+  }
 
   return (
     <>

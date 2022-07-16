@@ -1,25 +1,22 @@
 import { ProductContext } from "components/Context/ProductProvider"
-import React, { useCallback, useContext } from "react"
+import React, { useContext } from "react"
 import { ProductActions } from "types/state"
 
 const ProductInput = () => {
   const { dispatch } = useContext(ProductContext)
 
-  const handleKeyDown = useCallback(
-    (
-      event: React.KeyboardEvent<HTMLInputElement> & {
-        target: HTMLInputElement
-      },
-    ) => {
-      if (event.key === "Enter") {
-        dispatch({
-          type: ProductActions.TYPE_PRODUCT,
-          payload: event.target.value,
-        })
-      }
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement> & {
+      target: HTMLInputElement
     },
-    [dispatch],
-  )
+  ) => {
+    if (event.key === "Enter") {
+      dispatch({
+        type: ProductActions.TYPE_PRODUCT,
+        payload: event.target.value,
+      })
+    }
+  }
 
   return (
     <input

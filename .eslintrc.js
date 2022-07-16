@@ -139,7 +139,7 @@ module.exports = {
     // React JSX
     "react/jsx-child-element-spacing": "error",
     "react/jsx-handler-names": "error",
-    "react/jsx-no-bind": "error",
+    "react/jsx-no-bind": ["error", { allowArrowFunctions: true }],
     "react/jsx-no-leaked-render": ["error", { validStrategies: ["ternary"] }],
     "react/jsx-no-useless-fragment": "error",
     // React Hooks
