@@ -17,6 +17,9 @@
     "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "rootDir": ".",
+    "types": [
+      "vite/client"
+    ],
     // Emit
     "declaration": true,
     "sourceMap": true,

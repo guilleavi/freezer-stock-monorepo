@@ -7,11 +7,9 @@
   },
   "private": true,
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "yarn lint:fix && yarn prettier && react-scripts build",
-    "serve": "serve -s build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "vite",
+    "build": "yarn lint:fix && yarn prettier && tsc && vite build",
+    "preview": "vite preview",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && npx stylelint '**/*.scss'",
     "lint:fix": "yarn lint --fix && npx stylelint '**/*.scss' --fix",
     "prepare": "husky install",
@@ -21,7 +19,6 @@
     "axios": "^0.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
     "sass": "^1.53.0",
     "typescript": "^4.7.4"
   },
@@ -31,6 +28,7 @@
     "@types/react-dom": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.30.3",
     "@typescript-eslint/parser": "^5.30.3",
+    "@vitejs/plugin-react": "^2.0.0",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.1.4",
@@ -48,6 +46,8 @@
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-recommended": "^8.0.0",
     "stylelint-config-standard-scss": "^4.0.0",
+    "vite": "^3.0.0",
+    "vite-tsconfig-paths": "^3.5.0",
     "zod": "^3.17.3"
   },
   "lint-staged": {

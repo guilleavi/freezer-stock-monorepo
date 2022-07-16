@@ -5,7 +5,7 @@ import App from "./App"
 import { worker } from "./mocks/browser"
 
 // TODO: remove this when the real API is done
-if (process.env["NODE_ENV"] === "development") {
+if (import.meta.env.DEV) {
   void worker.start()
 }
 
