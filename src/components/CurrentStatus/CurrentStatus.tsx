@@ -1,4 +1,4 @@
-import { ProductContext } from "components/Context/ProductProvider"
+import { ProductContext } from "contexts/ProductProvider"
 import { useContext } from "react"
 import { pluralize, pluralizeToBe } from "utils/strings"
 

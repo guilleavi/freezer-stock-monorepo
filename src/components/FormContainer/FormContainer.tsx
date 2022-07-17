@@ -1,4 +1,4 @@
-import { ProductContext } from "components/Context/ProductProvider"
+import { ProductContext } from "contexts/ProductProvider"
 import CurrentStatus from "components/CurrentStatus/CurrentStatus"
 import StorageDate from "components/StorageDate/StorageDate"
 import UnitsController from "components/UnitsController/UnitsController"

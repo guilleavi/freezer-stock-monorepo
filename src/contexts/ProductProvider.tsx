@@ -27,6 +27,7 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
 
 const initialState: ProductState = {
   storagedProduct: {} as Product,
+  newProduct: {} as Product,
   typedProductName: "",
   storageDate: "",
 }

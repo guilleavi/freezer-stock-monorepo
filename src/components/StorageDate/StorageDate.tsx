@@ -1,4 +1,4 @@
-import { ProductContext } from "components/Context/ProductProvider"
+import { ProductContext } from "contexts/ProductProvider"
 import React, { useContext, useEffect, useState } from "react"
 import { ProductActions } from "types/state"
 

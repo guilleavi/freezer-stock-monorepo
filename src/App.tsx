@@ -1,4 +1,4 @@
-import { ProductProvider } from "components/Context/ProductProvider"
+import { ProductProvider } from "contexts/ProductProvider"
 import FormContainer from "components/FormContainer/FormContainer"
 
 const App = () => (

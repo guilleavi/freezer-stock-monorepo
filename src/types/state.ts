@@ -8,6 +8,7 @@ enum ProductActions {
 
 type ProductState = {
   storagedProduct: Product
+  newProduct: Product
   storageDate: string
   typedProductName: string
 }
