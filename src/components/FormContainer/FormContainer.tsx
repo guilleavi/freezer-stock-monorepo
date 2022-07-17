@@ -10,7 +10,7 @@ import { ProductActions } from "types/state"
 const FormContainer = () => {
   const {
     state: {
-      typedProductName: selectedProductName,
+      newProductItem: { name: selectedProductName },
       storagedProduct: { name, howLongToFreeze },
     },
     dispatch,

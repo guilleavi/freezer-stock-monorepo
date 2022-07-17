@@ -1,4 +1,4 @@
-import { Product } from "./product"
+import { Product, ProductItem } from "./product"
 
 enum ProductActions {
   GET_PRODUCT = "GET_PRODUCT",
@@ -8,9 +8,7 @@ enum ProductActions {
 
 type ProductState = {
   storagedProduct: Product
-  newProduct: Product
-  storageDate: string
-  typedProductName: string
+  newProductItem: ProductItem
 }
 
 type GetProductAction = {

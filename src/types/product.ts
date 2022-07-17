@@ -24,4 +24,11 @@ const Product = z.object({
 })
 type Product = z.infer<typeof Product>
 
-export { NewProduct, Product }
+const ProductItem = z.object({
+  name: z.string(),
+  storageDate: z.date(),
+  units: z.number(),
+})
+type ProductItem = z.infer<typeof ProductItem>
+
+export { NewProduct, Product, ProductItem }

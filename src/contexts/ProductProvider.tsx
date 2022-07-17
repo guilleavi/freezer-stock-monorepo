@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, createContext, useReducer } from "react"
-import { Product } from "types/product"
+import { Product, ProductItem } from "types/product"
 import { ProductAction, ProductActions, ProductState } from "types/state"
 
 const reducer = (state: ProductState, action: ProductAction): ProductState => {
@@ -12,12 +12,15 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
     case ProductActions.TYPE_PRODUCT:
       return {
         ...state,
-        typedProductName: action.payload,
+        newProductItem: { ...state.newProductItem, name: action.payload },
       }
     case ProductActions.UPDATE_STORAGE_DATE:
       return {
         ...state,
-        storageDate: action.payload,
+        newProductItem: {
+          ...state.newProductItem,
+          storageDate: new Date(action.payload),
+        },
       }
     default:
       console.error("Action not implemented")
@@ -27,9 +30,7 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
 
 const initialState: ProductState = {
   storagedProduct: {} as Product,
-  newProduct: {} as Product,
-  typedProductName: "",
-  storageDate: "",
+  newProductItem: {} as ProductItem,
 }
 
 const ProductContext = createContext<{
