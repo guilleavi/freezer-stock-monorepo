@@ -11,7 +11,7 @@ const FormContainer = () => {
   const {
     state: {
       typedProductName: selectedProductName,
-      product: { name, howLongToFreeze },
+      storagedProduct: { name, howLongToFreeze },
     },
     dispatch,
   } = useContext(ProductContext)

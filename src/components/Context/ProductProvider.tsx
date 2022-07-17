@@ -7,7 +7,7 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
     case ProductActions.GET_PRODUCT:
       return {
         ...state,
-        product: action.payload,
+        storagedProduct: action.payload,
       }
     case ProductActions.TYPE_PRODUCT:
       return {
@@ -26,7 +26,7 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
 }
 
 const initialState: ProductState = {
-  product: {} as Product,
+  storagedProduct: {} as Product,
   typedProductName: "",
   storageDate: "",
 }

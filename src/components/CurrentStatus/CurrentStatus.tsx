@@ -5,7 +5,12 @@ import { pluralize, pluralizeToBe } from "utils/strings"
 const CurrentStatus = () => {
   const {
     state: {
-      product: { howLongToFreeze, name, nextToExpireDate, nextToExpireUnits },
+      storagedProduct: {
+        howLongToFreeze,
+        name,
+        nextToExpireDate,
+        nextToExpireUnits,
+      },
     },
   } = useContext(ProductContext)
 
