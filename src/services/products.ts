@@ -1,4 +1,5 @@
-import { NewProduct, Product } from "types/product"
+import axios from "axios"
+import { NewProduct, Product, ProductItem } from "types/product"
 import { safeFetch } from "utils/fetch"
 
 type GetProduct = {
@@ -20,4 +21,9 @@ const getProduct = async ({
       })
     : new NewProduct("")
 
-export { getProduct }
+const saveProduct = async (newProductItem: ProductItem) => {
+  const postStatus = await axios.post(`/product/${newProductItem.name}`)
+  console.log(postStatus)
+}
+
+export { getProduct, saveProduct }

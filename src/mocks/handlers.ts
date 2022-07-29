@@ -19,4 +19,8 @@ export const handlers = [
     )
     return test
   }),
+  rest.post("/product/:productName", (req, res, ctx) => {
+    const test = res(ctx.status(HTTP_SUCCESS))
+    return test
+  }),
 ]

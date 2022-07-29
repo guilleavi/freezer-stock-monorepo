@@ -27,6 +27,10 @@ const CurrentStatus = () => {
         {/* TODO: calculate on days/months how long to expire */}
         {nextToExpireDate.toDateString()}
       </div>
+      <div>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <a href="">See Stock Details</a>
+      </div>
     </div>
   )
 }

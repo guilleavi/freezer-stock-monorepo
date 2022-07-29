@@ -6,6 +6,7 @@ import ProductInput from "components/ProductInput/ProductInput"
 import { useCallback, useContext, useEffect } from "react"
 import { getProduct } from "services/products"
 import { ProductActions } from "types/state"
+import SaveButton from "components/SaveButton/SaveButton"
 
 const FormContainer = () => {
   const {
@@ -61,7 +62,7 @@ const FormContainer = () => {
     <div className="form-container" style={{ maxWidth: "200px" }}>
       <ProductInput />
       <ProductContent />
-      {/* <div className="submit-button"></div> */}
+      <SaveButton />
     </div>
   )
 }
