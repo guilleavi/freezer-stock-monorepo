@@ -22,6 +22,14 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
           storageDate: new Date(action.payload),
         },
       }
+    case ProductActions.UPDATE_UNITS_TO_STORAGE:
+      return {
+        ...state,
+        newProductItem: {
+          ...state.newProductItem,
+          units: action.payload,
+        },
+      }
     default:
       console.error("Action not implemented")
       throw new Error()

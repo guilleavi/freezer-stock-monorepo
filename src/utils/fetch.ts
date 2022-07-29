@@ -53,6 +53,7 @@ const safeFetch = async <T extends ZodType<unknown, ZodTypeDef, unknown>, U>({
   url,
 }: SafeFetch<T, U>): Promise<T["_output"]> => {
   try {
+    // TODO: create axios facade
     const rawResponse = (await axios.get(url, { signal: abortSignal }))
       .data as T
     const response = schema.safeParse(rawResponse)
