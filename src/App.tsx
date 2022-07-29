@@ -1,13 +1,13 @@
 import { ProductProvider } from "contexts/ProductProvider"
-import HomePage from "pages/HomePage/HomePage"
-import StockDetailsPage from "pages/StockDetailsPage/StockDetailsPage"
+import MainPage from "pages/MainPage/MainPage"
+import DetailsPage from "pages/DetailsPage/DetailsPage"
 import { Routes, Route } from "react-router-dom"
 
 const App = () => (
   <ProductProvider>
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/details" element={<StockDetailsPage />} />
+      <Route path="/" element={<MainPage />} />
+      <Route path="/details" element={<DetailsPage />} />
     </Routes>
   </ProductProvider>
 )

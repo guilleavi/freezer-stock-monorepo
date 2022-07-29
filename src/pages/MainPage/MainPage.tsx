@@ -1,5 +1,5 @@
 import FormContainer from "components/FormContainer/FormContainer"
 
-const HomePage = () => <FormContainer />
+const MainPage = () => <FormContainer />
 
-export default HomePage
+export default MainPage
