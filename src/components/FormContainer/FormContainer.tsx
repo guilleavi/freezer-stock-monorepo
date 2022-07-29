@@ -1,18 +1,15 @@
 import { ProductContext } from "contexts/ProductProvider"
-import CurrentStatus from "components/CurrentStatus/CurrentStatus"
-import StorageDate from "components/StorageDate/StorageDate"
-import UnitsController from "components/UnitsController/UnitsController"
 import ProductInput from "components/ProductInput/ProductInput"
 import { useCallback, useContext, useEffect } from "react"
 import { getProduct } from "services/products"
 import { ProductActions } from "types/state"
 import SaveButton from "components/SaveButton/SaveButton"
+import ProductContent from "components/ProductContent/ProductContent"
 
 const FormContainer = () => {
   const {
     state: {
       newProductItem: { name: selectedProductName },
-      storagedProduct: { name, howLongToFreeze },
     },
     dispatch,
   } = useContext(ProductContext)
@@ -39,24 +36,6 @@ const FormContainer = () => {
       abortController.abort()
     }
   }, [fetchProduct, selectedProductName])
-
-  const ProductContent = useCallback(() => {
-    if (!name) {
-      return null
-    }
-
-    if (!howLongToFreeze) {
-      return <div>No data</div>
-    }
-
-    return (
-      <>
-        <CurrentStatus />
-        <StorageDate />
-        <UnitsController />
-      </>
-    )
-  }, [name, howLongToFreeze])
 
   return (
     <div className="form-container">

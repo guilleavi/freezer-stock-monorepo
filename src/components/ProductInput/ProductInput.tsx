@@ -18,7 +18,7 @@ const ProductInput = () => {
     }
   }
 
-  return <input type="text" onKeyDown={handleKeyDown} />
+  return <input type="text" placeholder="Search..." onKeyDown={handleKeyDown} />
 }
 
 export default ProductInput
