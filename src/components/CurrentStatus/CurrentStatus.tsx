@@ -1,5 +1,6 @@
 import { ProductContext } from "contexts/ProductProvider"
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 import { pluralize, pluralizeToBe } from "utils/strings"
 
 const CurrentStatus = () => {
@@ -28,8 +29,7 @@ const CurrentStatus = () => {
         {nextToExpireDate.toDateString()}
       </div>
       <div>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="">See Stock Details</a>
+        <Link to="details">See Stock Details</Link>
       </div>
     </div>
   )

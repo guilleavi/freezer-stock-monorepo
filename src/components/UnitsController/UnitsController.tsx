@@ -1,5 +1,5 @@
 import { ProductContext } from "contexts/ProductProvider"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { ProductActions } from "types/state"
 
 const UnitsController = () => {

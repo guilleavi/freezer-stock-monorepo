@@ -1,9 +1,14 @@
 import { ProductProvider } from "contexts/ProductProvider"
-import FormContainer from "components/FormContainer/FormContainer"
+import HomePage from "pages/HomePage/HomePage"
+import StockDetailsPage from "pages/StockDetailsPage/StockDetailsPage"
+import { Routes, Route } from "react-router-dom"
 
 const App = () => (
   <ProductProvider>
-    <FormContainer />
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/details" element={<StockDetailsPage />} />
+    </Routes>
   </ProductProvider>
 )
 

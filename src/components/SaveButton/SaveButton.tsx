@@ -14,7 +14,7 @@ const SaveButton = () => {
     <div>
       {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <button type="button" onClick={handleOnClick}>
-        Save
+        Add More
       </button>
       <pre>{JSON.stringify(state.newProductItem)}</pre>
     </div>
