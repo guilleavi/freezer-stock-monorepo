@@ -18,13 +18,7 @@ const ProductInput = () => {
     }
   }
 
-  return (
-    <input
-      type="text"
-      onKeyDown={handleKeyDown}
-      style={{ border: "1px solid gray", padding: "5px" }}
-    />
-  )
+  return <input type="text" onKeyDown={handleKeyDown} />
 }
 
 export default ProductInput

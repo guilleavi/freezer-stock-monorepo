@@ -1,5 +1,10 @@
 import FormContainer from "components/FormContainer/FormContainer"
 
-const MainPage = () => <FormContainer />
+const MainPage = () => (
+  <div className="page-container">
+    <h1>Freezer Stock</h1>
+    <FormContainer />
+  </div>
+)
 
 export default MainPage

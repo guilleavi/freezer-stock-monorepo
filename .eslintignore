@@ -1,3 +1,3 @@
 .eslintrc.js
 vite.config.ts
-*.scss
+**/*.scss

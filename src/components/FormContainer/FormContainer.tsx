@@ -59,7 +59,7 @@ const FormContainer = () => {
   }, [name, howLongToFreeze])
 
   return (
-    <div className="form-container" style={{ maxWidth: "200px" }}>
+    <div className="form-container">
       <ProductInput />
       <ProductContent />
       <SaveButton />
