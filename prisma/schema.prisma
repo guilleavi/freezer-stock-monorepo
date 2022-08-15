@@ -9,3 +9,18 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Product {
+  productId       Int       @id
+  name            String    @unique
+  monthsToExpire  Int
+  instances       ProductInstance[]
+}
+
+model ProductInstance {
+  instanceId      Int       @id
+  product         Product   @relation(fields: [name], references: [name])
+  name            String
+  units           Int
+  expirationDate  String
+}
