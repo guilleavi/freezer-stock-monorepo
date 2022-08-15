@@ -2,7 +2,7 @@ import { ProductContext } from "contexts/ProductProvider"
 import React, { useContext } from "react"
 import { ProductActions } from "types/state"
 
-const ProductInput = () => {
+const SearchInput = () => {
   const { dispatch } = useContext(ProductContext)
 
   const handleKeyDown = (
@@ -28,4 +28,4 @@ const ProductInput = () => {
   )
 }
 
-export default ProductInput
+export default SearchInput

@@ -1,10 +1,10 @@
 import { ProductContext } from "contexts/ProductProvider"
-import ProductInput from "components/ProductInput/ProductInput"
 import { useCallback, useContext, useEffect } from "react"
 import { getProduct } from "services/products"
 import { ProductActions } from "types/state"
 import SaveButton from "components/SaveButton/SaveButton"
 import ProductContainer from "containers/ProductContainer/ProductContainer"
+import SearchInput from "components/SearchInput/SearchInput"
 
 const FormContainer = () => {
   const {
@@ -39,9 +39,9 @@ const FormContainer = () => {
 
   return (
     <div className="form-container">
-      <ProductInput />
+      <SearchInput />
       <ProductContainer />
-      {selectedProductName ? <SaveButton /> : null}
+      {/* {selectedProductName ? <SaveButton /> : null} */}
     </div>
   )
 }

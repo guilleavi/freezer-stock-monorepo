@@ -14,6 +14,14 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
         ...state,
         newProductItem: { ...state.newProductItem, name: action.payload },
       }
+    case ProductActions.UPDATE_HOW_MANY_MONTHS_FREEZE:
+      return {
+        ...state,
+        newProductItem: {
+          ...state.newProductItem,
+          howManyMonthsFreeze: action.payload,
+        },
+      }
     case ProductActions.UPDATE_STORAGE_DATE:
       return {
         ...state,

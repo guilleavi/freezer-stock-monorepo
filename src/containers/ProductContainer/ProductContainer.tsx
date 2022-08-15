@@ -1,4 +1,4 @@
-import CurrentStatus from "components/CurrentStatus/CurrentStatus"
+import FrozenProductInfo from "components/FrozenProductInfo/FrozenProductInfo"
 import StorageDate from "components/StorageDate/StorageDate"
 import UnitsController from "components/UnitsController/UnitsController"
 import { ProductContext } from "contexts/ProductProvider"
@@ -14,13 +14,13 @@ const ProductContainer = () => {
     return null
   }
 
-  if (!howLongToFreeze) {
-    return <div>No data</div>
-  }
+  // if (!howLongToFreeze) {
+  //   return <div>No data</div>
+  // }
 
   return (
     <>
-      <CurrentStatus />
+      <FrozenProductInfo />
       <StorageDate />
       <UnitsController />
     </>

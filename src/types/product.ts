@@ -26,6 +26,7 @@ type Product = z.infer<typeof Product>
 
 const ProductItem = z.object({
   name: z.string(),
+  howManyMonthsFreeze: z.number(),
   storageDate: z.date(),
   units: z.number(),
 })
