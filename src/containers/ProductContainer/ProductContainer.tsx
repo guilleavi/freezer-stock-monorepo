@@ -4,7 +4,7 @@ import UnitsController from "components/UnitsController/UnitsController"
 import { ProductContext } from "contexts/ProductProvider"
 import { useContext } from "react"
 
-const ProductContent = () => {
+const ProductContainer = () => {
   const {
     state: {
       storagedProduct: { name, howLongToFreeze },
@@ -27,4 +27,4 @@ const ProductContent = () => {
   )
 }
 
-export default ProductContent
+export default ProductContainer

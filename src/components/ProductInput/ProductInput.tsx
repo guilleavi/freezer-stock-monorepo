@@ -18,7 +18,14 @@ const ProductInput = () => {
     }
   }
 
-  return <input type="text" placeholder="Search..." onKeyDown={handleKeyDown} />
+  return (
+    <input
+      type="search"
+      placeholder="Search..."
+      aria-label="Search product"
+      onKeyDown={handleKeyDown}
+    />
+  )
 }
 
 export default ProductInput

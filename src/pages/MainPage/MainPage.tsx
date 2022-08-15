@@ -1,4 +1,4 @@
-import FormContainer from "components/FormContainer/FormContainer"
+import FormContainer from "containers/FormContainer/FormContainer"
 
 const MainPage = () => (
   <div className="page-container">
