@@ -17,12 +17,14 @@ const getProduct = async ({
         defaultValue: new NewProduct(name),
         entityName: "Product",
         schema: Product,
-        url: `/product/${name}`,
+        url: `http://localhost:3000/products/${name}`,
       })
     : new NewProduct("")
 
 const saveProduct = async (newProductItem: ProductItem) => {
-  const postStatus = await axios.post(`/product/${newProductItem.name}`)
+  const postStatus = await axios.post(
+    `localhost:3000/products/${newProductItem.name}`,
+  )
   console.log(postStatus)
 }
 
