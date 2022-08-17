@@ -1,8 +1,8 @@
 import axios from "axios"
-import { NewProduct, Product, ProductItem } from "types/product"
+import { Product, NewProduct, ProductItem } from "types/product"
 import { safeFetch } from "utils/fetch"
 
-type GetProduct = {
+interface GetProduct {
   abortSignal: AbortSignal
   name: string
 }
@@ -12,11 +12,9 @@ const getProduct = async ({
   name,
 }: GetProduct): Promise<Product> =>
   name
-    ? await safeFetch({
+    ? await safeFetch<Product>({
         abortSignal,
         defaultValue: new NewProduct(name),
-        entityName: "Product",
-        schema: Product,
         url: `http://localhost:3000/products/${name}`,
       })
     : new NewProduct("")

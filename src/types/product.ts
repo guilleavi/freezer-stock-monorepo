@@ -1,9 +1,9 @@
-import { z } from "zod"
+const TODAY = new Date()
 
-class NewProduct implements Product {
+export class NewProduct implements Product {
   name = ""
   howLongToFreeze = 0
-  nextToExpireDate = new Date()
+  nextToExpireDate = TODAY.toDateString()
   nextToExpireUnits = 0
 
   constructor(name: string) {
@@ -11,25 +11,16 @@ class NewProduct implements Product {
   }
 }
 
-const Product = z.object({
-  name: z.string(),
-  howLongToFreeze: z.number(),
-  nextToExpireDate: z.preprocess((arg) => {
-    if (typeof arg === "string" || arg instanceof Date) {
-      return new Date(arg)
-    }
-    return arg
-  }, z.date()),
-  nextToExpireUnits: z.number(),
-})
-type Product = z.infer<typeof Product>
+export interface Product {
+  name: string
+  howLongToFreeze: number
+  nextToExpireDate: string
+  nextToExpireUnits: number
+}
 
-const ProductItem = z.object({
-  name: z.string(),
-  howManyMonthsFreeze: z.number(),
-  storageDate: z.date(),
-  units: z.number(),
-})
-type ProductItem = z.infer<typeof ProductItem>
-
-export { NewProduct, Product, ProductItem }
+export interface ProductItem {
+  name: string
+  howManyMonthsFreeze: number
+  storageDate: Date
+  units: number
+}

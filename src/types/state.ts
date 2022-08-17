@@ -8,32 +8,32 @@ enum ProductActions {
   UPDATE_UNITS_TO_STORAGE = "UPDATE_UNITS_TO_STORAGE",
 }
 
-type ProductState = {
+interface ProductState {
   storagedProduct: Product
   newProductItem: ProductItem
 }
 
-type GetProductAction = {
+interface GetProductAction {
   type: ProductActions.GET_PRODUCT
   payload: Product
 }
 
-type TypeProductAction = {
+interface TypeProductAction {
   type: ProductActions.TYPE_PRODUCT
   payload: string
 }
 
-type UpdateHowManyMonthsFreezeAction = {
+interface UpdateHowManyMonthsFreezeAction {
   type: ProductActions.UPDATE_HOW_MANY_MONTHS_FREEZE
   payload: number
 }
 
-type UpdateStorageDateAction = {
+interface UpdateStorageDateAction {
   type: ProductActions.UPDATE_STORAGE_DATE
   payload: string
 }
 
-type UpdateUnitsToStorageAction = {
+interface UpdateUnitsToStorageAction {
   type: ProductActions.UPDATE_UNITS_TO_STORAGE
   payload: number
 }

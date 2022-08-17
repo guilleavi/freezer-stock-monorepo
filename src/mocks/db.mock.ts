@@ -4,19 +4,19 @@ const productsMock: Array<Product> = [
   {
     name: "Brocoli",
     howLongToFreeze: 3,
-    nextToExpireDate: new Date("08/01/22"),
+    nextToExpireDate: new Date("08/01/22").toDateString(),
     nextToExpireUnits: 1,
   },
   {
     name: "Chicken",
     howLongToFreeze: 9,
-    nextToExpireDate: new Date("08/15/22"),
+    nextToExpireDate: new Date("08/15/22").toDateString(),
     nextToExpireUnits: 2,
   },
   {
     name: "Butter",
     howLongToFreeze: 6,
-    nextToExpireDate: new Date("08/23/22"),
+    nextToExpireDate: new Date("08/23/22").toDateString(),
     nextToExpireUnits: 3,
   },
 ]
