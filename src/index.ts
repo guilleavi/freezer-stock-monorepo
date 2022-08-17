@@ -1,8 +1,14 @@
 import { Prisma, PrismaClient } from '@prisma/client'
-const fastify = require('fastify')
+// const Fastify = require('fastify')
+import Fastify from 'fastify'
+import cors from '@fastify/cors'
 
 const prisma = new PrismaClient()
-const app = fastify()
+const app = Fastify()
+app.register(cors, {
+    origin: true,
+    methods: ['GET', 'PUT', 'POST']
+})
 
 interface ProductNameParams {
     name: string
@@ -22,16 +28,11 @@ app.get(`/products/:name`, async (req: any, res: any) => {
 
     const product = await prisma.product.findUnique({
         where: { name: name },
+        include: {
+            instances: true,
+        },
     })
-    res.send(product)
+    res.send(product, { depth: null })
 })
 
-app.listen(3000, (err: any) => {
-    if (err) {
-        console.error(err)
-        process.exit(1)
-    }
-    console.log(`
-    🚀 Server ready at: http://localhost:3000
-    ⭐️ See sample requests: http://pris.ly/e/ts/rest-fastify#3-using-the-rest-api`)
-})
+app.listen({ port: 3000 })
