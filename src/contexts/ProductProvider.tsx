@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, createContext, useReducer } from "react"
-import { Product, ProductItem } from "types/product"
+import { Product, ProductToSave } from "types/product"
 import { ProductAction, ProductActions, ProductState } from "types/state"
 
 const reducer = (state: ProductState, action: ProductAction): ProductState => {
@@ -19,7 +19,7 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
         ...state,
         newProductItem: {
           ...state.newProductItem,
-          howManyMonthsFreeze: action.payload,
+          howLongToFreeze: action.payload,
         },
       }
     case ProductActions.UPDATE_STORAGE_DATE:
@@ -27,7 +27,7 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
         ...state,
         newProductItem: {
           ...state.newProductItem,
-          storageDate: new Date(action.payload),
+          storageDate: action.payload,
         },
       }
     case ProductActions.UPDATE_UNITS_TO_STORAGE:
@@ -46,7 +46,7 @@ const reducer = (state: ProductState, action: ProductAction): ProductState => {
 
 const initialState: ProductState = {
   storagedProduct: {} as Product,
-  newProductItem: {} as ProductItem,
+  newProductItem: {} as ProductToSave,
 }
 
 const ProductContext = createContext<{

@@ -24,11 +24,7 @@ const safeFetch = async <T>({
     const rawResponse = (await axios.get(url, { signal: abortSignal }))
       .data as T
 
-    if (!(typeof rawResponse === "object")) {
-      return defaultValue
-    }
-
-    return rawResponse
+    return rawResponse || defaultValue
   } catch (e: unknown) {
     console.log(e)
     return defaultValue

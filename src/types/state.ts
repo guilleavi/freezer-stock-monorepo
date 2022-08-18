@@ -1,4 +1,4 @@
-import { Product, ProductItem } from "./product"
+import { Product, ProductToSave } from "./product"
 
 enum ProductActions {
   GET_PRODUCT = "GET_PRODUCT",
@@ -10,7 +10,7 @@ enum ProductActions {
 
 interface ProductState {
   storagedProduct: Product
-  newProductItem: ProductItem
+  newProductItem: ProductToSave
 }
 
 interface GetProductAction {

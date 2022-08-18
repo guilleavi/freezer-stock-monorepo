@@ -7,16 +7,12 @@ import { useContext } from "react"
 const ProductContainer = () => {
   const {
     state: {
-      storagedProduct: { name, howLongToFreeze },
+      storagedProduct: { name },
     },
   } = useContext(ProductContext)
   if (!name) {
     return null
   }
-
-  // if (!howLongToFreeze) {
-  //   return <div>No data</div>
-  // }
 
   return (
     <>

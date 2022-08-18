@@ -6,14 +6,14 @@ const ExpiringNextInfo = ({
   name,
 }: {
   nextToExpireUnits: number
-  nextToExpireDate: Date
+  nextToExpireDate: string
   name: string
 }) => (
   <div>
     {nextToExpireUnits} {pluralize("Unit", nextToExpireUnits)} of {name}{" "}
     {pluralizeToBe(nextToExpireUnits)} expiring on{" "}
     {/* TODO: calculate on days/months how long to expire */}
-    {nextToExpireDate.toDateString()}
+    {nextToExpireDate}
   </div>
 )
 

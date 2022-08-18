@@ -1,5 +1,10 @@
 import axios from "axios"
-import { Product, NewProduct, ProductItem } from "types/product"
+import {
+  Product,
+  NewProduct,
+  ProductToSave,
+  ProductDetails,
+} from "types/product"
 import { safeFetch } from "utils/fetch"
 
 interface GetProduct {
@@ -19,11 +24,19 @@ const getProduct = async ({
       })
     : new NewProduct("")
 
-const saveProduct = async (newProductItem: ProductItem) => {
+const getProductDetails = async ({
+  abortSignal,
+  name,
+}: GetProduct): Promise<Array<ProductDetails>> =>
+  await axios.get(`http://localhost:3000/products/intances/${name}`, {
+    signal: abortSignal,
+  })
+
+const saveProduct = async (newProductItem: ProductToSave) => {
   const postStatus = await axios.post(
     `localhost:3000/products/${newProductItem.name}`,
   )
   console.log(postStatus)
 }
 
-export { getProduct, saveProduct }
+export { getProduct, getProductDetails, saveProduct }

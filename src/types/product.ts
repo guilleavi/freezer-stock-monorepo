@@ -18,9 +18,15 @@ export interface Product {
   nextToExpireUnits: number
 }
 
-export interface ProductItem {
+export interface ProductDetails {
   name: string
-  howManyMonthsFreeze: number
-  storageDate: Date
+  expirationDate: string
+  units: number
+}
+
+export interface ProductToSave {
+  name: string
+  howLongToFreeze: number
+  storageDate: string
   units: number
 }

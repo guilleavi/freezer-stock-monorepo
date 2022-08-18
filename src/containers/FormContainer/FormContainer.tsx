@@ -41,7 +41,7 @@ const FormContainer = () => {
     <div className="form-container">
       <SearchInput />
       <ProductContainer />
-      {/* {selectedProductName ? <SaveButton /> : null} */}
+      {selectedProductName ? <SaveButton /> : null}
     </div>
   )
 }
