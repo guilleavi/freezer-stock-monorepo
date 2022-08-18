@@ -11,14 +11,14 @@ datasource db {
 }
 
 model Product {
-  productId       Int       @id
+  productId       Int       @id @default(autoincrement())
   name            String    @unique
   monthsToExpire  Int
   instances       ProductInstance[]
 }
 
 model ProductInstance {
-  instanceId      Int       @id
+  instanceId      Int       @id @default(autoincrement())
   product         Product   @relation(fields: [name], references: [name])
   name            String
   units           Int

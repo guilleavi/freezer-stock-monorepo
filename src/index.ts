@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient, ProductInstance } from '@prisma/client'
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
 
@@ -59,9 +59,18 @@ app.get(`/products/:name`, async (req: any, res: any) => {
 })
 
 app.post(`/products/:name`, async (req: any, res: any) => {
-    const { name, howLongToFreeze, storageDate, units } = req.params
+    const { name, howLongToFreeze, storageDate, units } = req.body
 
-    console.log(req.params)
+    const storageDateToDate = new Date(storageDate)
+    storageDateToDate.setMonth(storageDateToDate.getMonth() + howLongToFreeze)
+
+    await prisma.productInstance.create({
+        data: {
+            name: name as string,
+            units: units as number,
+            expirationDate: storageDateToDate.toLocaleDateString()
+        } as ProductInstance
+    })
 })
 
 app.get(`/products/instances/:name`, async (req: any, res: any) => {
