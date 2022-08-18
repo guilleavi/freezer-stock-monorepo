@@ -34,7 +34,8 @@ const getProductDetails = async ({
 
 const saveProduct = async (newProductItem: ProductToSave) => {
   const postStatus = await axios.post(
-    `localhost:3000/products/${newProductItem.name}`,
+    `http://localhost:3000/products/${newProductItem.name}`,
+    newProductItem,
   )
   console.log(postStatus)
 }
