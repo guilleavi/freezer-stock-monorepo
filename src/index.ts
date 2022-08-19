@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient, ProductInstance } from '@prisma/client'
+import { PrismaClient, Product, ProductInstance } from '@prisma/client'
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
 
@@ -61,16 +61,44 @@ app.get(`/products/:name`, async (req: any, res: any) => {
 app.post(`/products/:name`, async (req: any, res: any) => {
     const { name, howLongToFreeze, storageDate, units } = req.body
 
-    const storageDateToDate = new Date(storageDate)
-    storageDateToDate.setMonth(storageDateToDate.getMonth() + howLongToFreeze)
-
-    await prisma.productInstance.create({
-        data: {
-            name: name as string,
-            units: units as number,
-            expirationDate: storageDateToDate.toLocaleDateString()
-        } as ProductInstance
+    const product = await prisma.product.findUnique({
+        where: { name: name }
     })
+
+    // Check if the product is new, in that case, insert a new product
+    if (!product) {
+        await prisma.product.create({
+            data: {
+                name: name as string,
+                monthsToExpire: howLongToFreeze as number,
+            } as Product
+        })
+    } else {
+        // If the product already exists, update the howLongToFreeze value if it changes
+        if (!product.monthsToExpire !== howLongToFreeze) {
+            await prisma.product.update({
+                data: {
+                    monthsToExpire: howLongToFreeze
+                },
+                where: { name: name }
+            })
+        }
+    }
+
+    if (units) {
+        // Create a new product instance
+        const storageDateToDate = new Date(storageDate)
+        storageDateToDate.setMonth(storageDateToDate.getMonth() + howLongToFreeze)
+
+        await prisma.productInstance.create({
+            data: {
+                name: name as string,
+                units: units as number,
+                expirationDate: storageDateToDate.toLocaleDateString()
+            } as ProductInstance
+        })
+    }
+
 })
 
 app.get(`/products/instances/:name`, async (req: any, res: any) => {
