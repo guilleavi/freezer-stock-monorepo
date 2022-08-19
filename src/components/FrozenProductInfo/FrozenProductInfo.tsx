@@ -21,6 +21,7 @@ const FrozenProductInfo = () => {
       className="current-status"
       style={{ border: "1px solid gray", padding: "5px" }}
     >
+      <h2>{name}</h2>
       <HowLongInfo howLongToFreeze={howLongToFreeze} />
       {nextToExpireUnits ? (
         <>

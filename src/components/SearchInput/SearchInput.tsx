@@ -1,9 +1,10 @@
 import { ProductContext } from "contexts/ProductProvider"
-import React, { useContext } from "react"
+import React, { useContext, useRef } from "react"
 import { ProductActions } from "types/state"
 
 const SearchInput = () => {
   const { dispatch } = useContext(ProductContext)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLInputElement> & {
@@ -15,6 +16,9 @@ const SearchInput = () => {
         type: ProductActions.TYPE_PRODUCT,
         payload: event.target.value,
       })
+      if (inputRef.current) {
+        inputRef.current.value = ""
+      }
     }
   }
 
@@ -24,6 +28,7 @@ const SearchInput = () => {
       placeholder="Search..."
       aria-label="Search product"
       onKeyDown={handleKeyDown}
+      ref={inputRef}
     />
   )
 }
